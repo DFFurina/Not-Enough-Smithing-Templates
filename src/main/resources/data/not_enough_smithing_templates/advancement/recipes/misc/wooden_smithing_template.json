@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_wooden_smithing_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "not_enough_smithing_templates:wooden_smithing_template"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "not_enough_smithing_templates:wooden_smithing_template"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_smithing_template",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "not_enough_smithing_templates:wooden_smithing_template"
+    ]
+  }
+}
