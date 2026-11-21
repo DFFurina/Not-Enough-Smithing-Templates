@@ -12,6 +12,7 @@ public final class NotEnoughSmithingTemplatesMod {
 
     public NotEnoughSmithingTemplatesMod(IEventBus modEventBus) {
         ModItems.ITEMS.register(modEventBus);
+        ModCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         LOGGER.info("Initializing Not Enough Smithing Templates......");
     }
 }
