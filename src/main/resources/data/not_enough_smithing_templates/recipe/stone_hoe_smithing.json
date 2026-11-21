@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "not_enough_smithing_templates:stone_smithing_template"
+  },
+  "base": {
+    "item": "minecraft:wooden_hoe"
+  },
+  "addition": {
+    "tag": "not_enough_smithing_templates:smithable_stone"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:stone_hoe"
+  }
+}
