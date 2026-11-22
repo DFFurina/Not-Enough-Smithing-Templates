@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "not_enough_smithing_templates:smithable_stone"
+  },
+  "base": {
+    "item": "minecraft:wooden_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:stone_pickaxe"
+  },
+  "template": {
+    "item": "not_enough_smithing_templates:stone_smithing_template"
+  }
+}

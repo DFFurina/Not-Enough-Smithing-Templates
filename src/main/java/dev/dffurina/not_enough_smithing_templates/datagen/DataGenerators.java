@@ -12,5 +12,8 @@ public final class DataGenerators {
             event.addProvider(new ModEnglishLanguageProvider(output));
             event.addProvider(new ModChineseLanguageProvider(output));
         }
+        if (event.includeServer()) {
+            event.addProvider(new ModRecipeProvider(output, event.getLookupProvider()));
+        }
     }
 }
