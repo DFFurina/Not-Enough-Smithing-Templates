@@ -15,8 +15,9 @@ import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public final class ModRecipeProvider extends RecipeProvider {
     private static final TagKey<Item> SMITHABLE_STONE = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(NotEnoughSmithingTemplatesMod.MODID, "smithable_stone"));
@@ -24,58 +25,67 @@ public final class ModRecipeProvider extends RecipeProvider {
         super(output, registries);
     }
 
+    private static Item vanillaItem(String path) {
+        return BuiltInRegistries.ITEM.getOptional(
+                ResourceLocation.withDefaultNamespace(path)
+        ).orElseThrow(() ->
+                new IllegalStateException("Unknown vanilla item: minecraft:"+path)
+        );
+    }
     private record StoneToolRecipe(String id, Item baseItem, Item resultItem) {}
-    private static final List<StoneToolRecipe> STONE_TOOL_RECIPES = List.of(
-            new StoneToolRecipe(
-                    "stone_pickaxe_smithing",
-                    Items.WOODEN_PICKAXE,
-                    Items.STONE_PICKAXE
-            ),
-            new StoneToolRecipe(
-                    "stone_axe_smithing",
-                    Items.WOODEN_AXE,
-                    Items.STONE_AXE
-            ),
-            new StoneToolRecipe(
-                    "stone_hoe_smithing",
-                    Items.WOODEN_HOE,
-                    Items.STONE_HOE
-            ),
-            new StoneToolRecipe(
-                    "stone_sword_smithing",
-                    Items.WOODEN_SWORD,
-                    Items.STONE_SWORD
-            ),
-            new StoneToolRecipe(
-                    "stone_shovel_smithing",
-                    Items.WOODEN_SHOVEL,
-                    Items.STONE_SHOVEL
+    private enum ToolKind {
+        PICKAXE("pickaxe"),
+        AXE("axe"),
+        HOE("hoe"),
+        SHOVEL("shovel"),
+        SWORD("sword");
+        private final String id;
+        ToolKind(String id) {
+            this.id = id;
+        }
+        public String id() {
+            return id;
+        }
+    }
+    private record MaterialTier(String id, DeferredItem<Item> template, TagKey<Item> addition, String sourcePrefix, String targetPrefix) {}
+    private static final List<MaterialTier> MATERIAL_TIERS = List.of(
+            new MaterialTier(
+                    "stone",
+                    ModItems.STONE_SMITHING_TEMPLATE,
+                    SMITHABLE_STONE,
+                    "wooden",
+                    "stone"
             )
     );
 
-    private void addStoneToolRecipe(RecipeOutput recipeOutput, StoneToolRecipe toolRecipe) {
+    private void addToolRecipe(RecipeOutput recipeOutput, MaterialTier tier, ToolKind tool) {
+        Item baseItem = vanillaItem(tier.sourcePrefix() + '_' + tool.id());
+        Item resultItem = vanillaItem(tier.targetPrefix() + '_' + tool.id());
+        String recipeId = tier.id() + "_" + tool.id() + "_smithing";
         SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(ModItems.STONE_SMITHING_TEMPLATE.get()),
-                Ingredient.of(toolRecipe.baseItem()),
-                Ingredient.of(SMITHABLE_STONE),
+                Ingredient.of(tier.template().get()),
+                Ingredient.of(baseItem),
+                Ingredient.of(tier.addition()),
                 RecipeCategory.TOOLS,
-                toolRecipe.resultItem()
+                resultItem
         ).unlocks(
-                "has_stone_smithing_template",
-                has(ModItems.STONE_SMITHING_TEMPLATE.get())
+                "has_" + tier.id() + "_smithing_template",
+                has(tier.template.get())
         ).save(
                 recipeOutput,
                 ResourceLocation.fromNamespaceAndPath(
                         NotEnoughSmithingTemplatesMod.MODID,
-                        toolRecipe.id()
+                        recipeId
                 )
         );
     }
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        for (StoneToolRecipe toolRecipe : STONE_TOOL_RECIPES) {
-            addStoneToolRecipe(recipeOutput, toolRecipe);
+        for (MaterialTier tier : MATERIAL_TIERS) {
+            for (ToolKind tool : ToolKind.values()) {
+                addToolRecipe(recipeOutput, tier, tool);
+            }
         }
     }
 }
