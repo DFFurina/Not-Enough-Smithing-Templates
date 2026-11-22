@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "c:ingots/gold"
+  },
+  "base": {
+    "item": "minecraft:iron_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:golden_axe"
+  },
+  "template": {
+    "item": "not_enough_smithing_templates:golden_smithing_template"
+  }
+}

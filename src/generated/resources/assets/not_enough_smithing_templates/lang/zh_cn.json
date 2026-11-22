@@ -1,4 +1,6 @@
 {
+  "item.not_enough_smithing_templates.diamond_smithing_template": "钻石锻造模板",
+  "item.not_enough_smithing_templates.golden_smithing_template": "金制锻造模板",
   "item.not_enough_smithing_templates.iron_smithing_template": "铁制锻造模板",
   "item.not_enough_smithing_templates.stone_smithing_template": "石制锻造模板",
   "item.not_enough_smithing_templates.wooden_smithing_template": "木制锻造模板",

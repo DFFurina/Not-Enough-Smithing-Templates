@@ -13,6 +13,8 @@ public final class ModEnglishLanguageProvider extends ModLanguageProvider {
         add(ModItems.WOODEN_SMITHING_TEMPLATE.get(), "Wooden Smithing Template");
         add(ModItems.STONE_SMITHING_TEMPLATE.get(), "Stone Smithing Template");
         add(ModItems.IRON_SMITHING_TEMPLATE.get(), "Iron Smithing Template");
+        add(ModItems.GOLDEN_SMITHING_TEMPLATE.get(), "Golden Smithing Template");
+        add(ModItems.DIAMOND_SMITHING_TEMPLATE.get(), "Diamond Smithing Template");
         add("itemGroup.not_enough_smithing_templates.not_enough_smithing_templates_tab", "Not Enough Smithing Templates");
     }
 }

@@ -1,4 +1,6 @@
 {
+  "item.not_enough_smithing_templates.diamond_smithing_template": "Diamond Smithing Template",
+  "item.not_enough_smithing_templates.golden_smithing_template": "Golden Smithing Template",
   "item.not_enough_smithing_templates.iron_smithing_template": "Iron Smithing Template",
   "item.not_enough_smithing_templates.stone_smithing_template": "Stone Smithing Template",
   "item.not_enough_smithing_templates.wooden_smithing_template": "Wooden Smithing Template",

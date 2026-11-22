@@ -14,6 +14,8 @@ public final class ModChineseLanguageProvider extends ModLanguageProvider {
         add(ModItems.WOODEN_SMITHING_TEMPLATE.get(), "木制锻造模板");
         add(ModItems.STONE_SMITHING_TEMPLATE.get(), "石制锻造模板");
         add(ModItems.IRON_SMITHING_TEMPLATE.get(), "铁制锻造模板");
+        add(ModItems.GOLDEN_SMITHING_TEMPLATE.get(), "金制锻造模板");
+        add(ModItems.DIAMOND_SMITHING_TEMPLATE.get(), "钻石锻造模板");
         add("itemGroup.not_enough_smithing_templates.not_enough_smithing_templates_tab", "锻造科技");
     }
 }

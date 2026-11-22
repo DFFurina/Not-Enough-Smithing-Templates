@@ -63,6 +63,20 @@ public final class ModRecipeProvider extends RecipeProvider {
                     Tags.Items.INGOTS_IRON,
                     "stone",
                     "iron"
+            ),
+            new MaterialTier(
+                    "golden",
+                    ModItems.GOLDEN_SMITHING_TEMPLATE,
+                    Tags.Items.INGOTS_GOLD,
+                    "iron",
+                    "golden"
+            ),
+            new MaterialTier(
+                    "diamond",
+                    ModItems.DIAMOND_SMITHING_TEMPLATE,
+                    Tags.Items.GEMS_DIAMOND,
+                    "iron",
+                    "diamond"
             )
     );
 

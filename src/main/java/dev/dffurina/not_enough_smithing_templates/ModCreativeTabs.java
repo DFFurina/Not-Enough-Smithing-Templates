@@ -19,6 +19,8 @@ public final class ModCreativeTabs {
                         output.accept(ModItems.WOODEN_SMITHING_TEMPLATE);
                         output.accept(ModItems.STONE_SMITHING_TEMPLATE);
                         output.accept(ModItems.IRON_SMITHING_TEMPLATE);
+                        output.accept(ModItems.GOLDEN_SMITHING_TEMPLATE);
+                        output.accept(ModItems.DIAMOND_SMITHING_TEMPLATE);
                     }).build()
     );
     private  ModCreativeTabs() {}
