@@ -14,5 +14,9 @@ public final class ModItems {
             "stone_smithing_template",
             new Item.Properties()
     );
+    public static final DeferredItem<Item> IRON_SMITHING_TEMPLATE = ITEMS.registerSimpleItem(
+            "iron_smithing_template",
+            new Item.Properties()
+    );
     private ModItems() {}
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "c:ingots/iron"
+  },
+  "base": {
+    "item": "minecraft:stone_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:iron_axe"
+  },
+  "template": {
+    "item": "not_enough_smithing_templates:iron_smithing_template"
+  }
+}

@@ -2,6 +2,7 @@ package dev.dffurina.not_enough_smithing_templates.datagen;
 
 import dev.dffurina.not_enough_smithing_templates.ModItems;
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.common.Mod;
 
 public final class ModChineseLanguageProvider extends ModLanguageProvider {
     public ModChineseLanguageProvider(PackOutput output) {
@@ -12,6 +13,7 @@ public final class ModChineseLanguageProvider extends ModLanguageProvider {
     protected void addTranslations() {
         add(ModItems.WOODEN_SMITHING_TEMPLATE.get(), "木制锻造模板");
         add(ModItems.STONE_SMITHING_TEMPLATE.get(), "石制锻造模板");
-        add("itemGroup.not_enough_smithing_templates.smithing_templates", "锻造模板");
+        add(ModItems.IRON_SMITHING_TEMPLATE.get(), "铁制锻造模板");
+        add("itemGroup.not_enough_smithing_templates.not_enough_smithing_templates_tab", "锻造科技");
     }
 }

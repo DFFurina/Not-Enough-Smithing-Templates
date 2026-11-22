@@ -15,5 +15,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.WOODEN_SMITHING_TEMPLATE.get());
         basicItem(ModItems.STONE_SMITHING_TEMPLATE.get());
+        basicItem(ModItems.IRON_SMITHING_TEMPLATE.get());
     }
 }

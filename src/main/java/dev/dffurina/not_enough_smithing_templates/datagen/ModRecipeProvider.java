@@ -18,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.common.Tags;
 
 public final class ModRecipeProvider extends RecipeProvider {
     private static final TagKey<Item> SMITHABLE_STONE = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(NotEnoughSmithingTemplatesMod.MODID, "smithable_stone"));
@@ -55,6 +56,13 @@ public final class ModRecipeProvider extends RecipeProvider {
                     SMITHABLE_STONE,
                     "wooden",
                     "stone"
+            ),
+            new MaterialTier(
+                    "iron",
+                    ModItems.IRON_SMITHING_TEMPLATE,
+                    Tags.Items.INGOTS_IRON,
+                    "stone",
+                    "iron"
             )
     );
 
